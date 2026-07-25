@@ -50,6 +50,17 @@
   .btn-purple:hover{background:var(--purple-dark);}
   .link-arrow{font-weight:600;color:var(--ink);font-size:15px;}
   .link-arrow:hover{color:var(--purple);}
+  /* MOBILE MENU (hamburger) */
+  .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:9px;cursor:pointer;border-radius:8px;}
+  .hamburger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .2s;}
+  .nav-mobile{display:none;flex-direction:column;padding-top:6px;padding-bottom:18px;}
+  .nav-mobile a{padding:14px 2px;font-size:17px;font-weight:600;color:var(--ink);border-top:1px solid var(--line);}
+  .nav-mobile a:hover{color:var(--purple);}
+  .nav-mobile .btn-purple{margin-top:16px;padding:14px 22px;color:#fff;border:none;justify-content:center;}
+  .nav-toggle:checked ~ .nav-mobile{display:flex;}
+  .nav-toggle:checked ~ .nav .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle:checked ~ .nav .hamburger span:nth-child(2){opacity:0;}
+  .nav-toggle:checked ~ .nav .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
   /* HERO */
   .hero{padding:70px 0 90px;}
@@ -165,6 +176,8 @@
 
   @media(max-width:640px){
     .nav-mid{display:none;}
+    .nav-right{display:none;}
+    .hamburger{display:flex;}
     .stats{grid-template-columns:1fr;}
     .hero-ctas{flex-wrap:wrap;}
     .attr-grid{grid-template-columns:1fr;}
@@ -239,6 +252,7 @@
 
   <!-- ===================== NAV ===================== -->
   <header>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
     <div class="wrap nav">
       <a href="#" class="brand"><img class="brand-logo" src="sw-logo.webp" alt="SalesWizard"></a>
       <nav class="nav-mid">
@@ -253,6 +267,17 @@
         <a href="#" class="signin">Sign in</a>
         <a href="#" class="btn btn-purple">Book a demo</a>
       </div>
+      <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></label>
+    </div>
+    <div class="nav-mobile wrap">
+      <a href="#how">How It Works</a>
+      <a href="#scorecard">Scorecard</a>
+      <a href="#coaching">Coaching</a>
+      <a href="#dashboard">Manager Dashboard</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#" class="nav-mobile-signin">Sign in</a>
+      <a href="#" class="btn btn-purple">Book a demo</a>
     </div>
   </header>
 
@@ -437,5 +462,10 @@
     </div>
   </footer>
 
+<script>
+  document.querySelectorAll('.nav-mobile a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('nav-toggle').checked=false;});
+  });
+</script>
 </body>
 </html>
