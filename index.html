@@ -246,6 +246,20 @@
   .steps-hiw .center h2{font-size:clamp(24px,3.4vw,37px);}
   .steps-hiw .kicker,.kicker-lg .kicker{font-size:34px;letter-spacing:0.1em;}
   .steps-hiw .center p{font-size:18px;}
+  /* FAQ (accordion) */
+  .faq-list{max-width:52rem;margin:44px auto 0;display:flex;flex-direction:column;gap:14px;}
+  .faq{border:1px solid var(--line);border-radius:12px;background:#241B3E;overflow:hidden;}
+  .faq[open]{box-shadow:0 18px 44px -22px rgba(0,0,0,0.55);}
+  .faq>summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:18px;font-weight:600;color:var(--ink);}
+  .faq>summary::-webkit-details-marker{display:none;}
+  .faq-ico{flex:none;width:22px;height:22px;position:relative;}
+  .faq-ico::before,.faq-ico::after{content:"";position:absolute;background:var(--purple-dark);border-radius:2px;}
+  .faq-ico::before{top:10px;left:2px;right:2px;height:2px;}
+  .faq-ico::after{left:10px;top:2px;bottom:2px;width:2px;transition:transform .2s;}
+  .faq[open] .faq-ico::after{transform:scaleY(0);}
+  @media(hover:hover){.faq>summary:hover{color:var(--purple-dark);}}
+  .faq-body{padding:0 22px 24px;}
+  .faq-body p{font-size:16px;line-height:1.7;color:var(--body);}
 </style>
 </head>
 <body>
@@ -441,6 +455,38 @@
             <p>After implementing SalesWizard, the company gained greater visibility into sales conversations, improved coaching consistency, and identified performance issues earlier.</p>
             <p>Within two months, turnover fell from 40% to 13%, a nearly 68% reduction.</p>
           </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" class="kicker-lg">
+    <div class="wrap pad">
+      <div class="center">
+        <div class="kicker">FAQ</div>
+        <h2 style="margin-top:10px;">Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>How does the AI coaching work?<span class="faq-ico"></span></summary>
+          <div class="faq-body"><p>SalesWizard records each sales conversation, scores it against the attributes that matter to your business, and highlights the key moments. It then shows your reps specific, better ways to respond, and learns from your top performers so the whole team is coached to the same standard.</p></div>
+        </details>
+        <details class="faq">
+          <summary>How long does it take to get set up?<span class="faq-ico"></span></summary>
+          <div class="faq-body"><p>Setup is quick. We work with you to define the attributes you want to score, and your reps can start recording right from the mobile app the same day. There's no long onboarding project to work through.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Is it legal to record sales conversations?<span class="faq-ico"></span></summary>
+          <div class="faq-body"><p>In most places, yes. Some states require you to let the customer know the conversation is being recorded, so we give you simple guidance on notifying customers up front. We recommend confirming the rules for the states your team sells in.</p></div>
+        </details>
+        <details class="faq">
+          <summary>How do reps feel about being recorded?<span class="faq-ico"></span></summary>
+          <div class="faq-body"><p>It's normal for reps to be hesitant at first. But once they see how quickly the coaching helps them improve, and close more, on the very next call, most come around fast. Top reps tend to embrace it as an edge over the competition.</p></div>
+        </details>
+        <details class="faq">
+          <summary>How much does it cost, and am I locked into a contract?<span class="faq-ico"></span></summary>
+          <div class="faq-body"><p>SalesWizard is $29 to $49 per user per month, billed month-to-month with no long-term contract, plus a one-time $2,500 setup fee. See how that compares above.</p></div>
         </details>
       </div>
     </div>
